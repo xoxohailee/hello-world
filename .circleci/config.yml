@@ -14,9 +14,15 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo world
+  
+  print_name:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo $USER_NAME
+
 
 workflows:
-  version: 2.1
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
@@ -25,4 +31,7 @@ workflows:
       - print_world:
           requires:
             - print_hello
+      - print_name:
+          requires:
+            - print_world
     
