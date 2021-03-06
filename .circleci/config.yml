@@ -9,7 +9,7 @@ jobs:
     steps:
       - run: echo hello
       
-  print_world:
+  print_world:X
     docker:
       - image: circleci/node:13.8.0
     steps:
@@ -19,7 +19,11 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo $USER_NAME
+      - checkout
+      - run: 
+          name: "echo an ev var that is part of our project"
+          command: |
+            echo $USER_NAME
 
 
 workflows:
