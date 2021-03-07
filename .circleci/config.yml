@@ -18,6 +18,15 @@ jobs:
     steps:
       - print_pipeline_id:
           id: << pipeline.id >>
+  new_error_code_test:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: return 1
+      - run:
+          name: Upload Failed Tests
+          command: echo Hello Error!
+          when: on_fail
 
 
 
@@ -26,4 +35,4 @@ workflows:
   welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - new_command_test
+      - new_error_code_test
