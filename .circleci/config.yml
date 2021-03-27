@@ -10,4 +10,4 @@ workflows:
     jobs:
       - aws-cloudformation/create-stack:
           stack-name: newStack
-          template-file-path: /template.yml
+          template-file-path: cfconfig/template.yml
