@@ -6,7 +6,7 @@ orbs:
   aws-cloudformation: orbss/aws-cloudformation@0.1.6
 
 workflows:
-  iac_workflow:
+  cf_workflow:
     jobs:
       - orbss/deploy:
           stack-name: newStack
