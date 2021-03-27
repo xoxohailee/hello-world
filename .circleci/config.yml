@@ -11,8 +11,7 @@ jobs:
           command: |
             pwd
             ls -la
-            aws cloudformation deploy \
-              --template-file template.yml \
+            aws cloudformation delete-stack \
               --stack-name my-stack
 workflows:
   my_workflow:
