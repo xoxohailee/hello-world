@@ -10,4 +10,4 @@ workflows:
     jobs:
       - aws-cloudformation/deploy:
           stack-name: newStack
-          template-file-path: ../template.yml
+          template-file-path: template.yml
