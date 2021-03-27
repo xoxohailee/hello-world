@@ -9,5 +9,5 @@ workflows:
   iac_workflow:
     jobs:
       - orbss/deploy:
-        stack-name: newStack
-        template-file-path: /Users/enidworks/Documents/Dev/Udacity/hello-world-1/template.yml
+          stack-name: newStack
+          template-file-path: /Users/enidworks/Documents/Dev/Udacity/hello-world-1/template.yml
