@@ -1,19 +1,20 @@
 version: 2.1
 
 jobs:
-  create_infrastructure:
+  config_infrastructure:
     docker:
-      - image: amazon/aws-cli
+      - image: python:3.7-alpine3.11
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "e5:99:97:fc:2d:50:92:14:83:f8:d2:b4:41:46:76:f3"
       - run:
-          name: Ensure backend infrastructure exist
+          name: Execute Ansible Playbook
           command: |
-            pwd
-            ls -la
-            aws cloudformation delete-stack \
-              --stack-name my-stack
+            ansible-playbook main-remote.yml -i inventory
+
 workflows:
   my_workflow:
     jobs:
-      - create_infrastructure
+      - config_infrastructure
