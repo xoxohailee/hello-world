@@ -8,6 +8,6 @@ orbs:
 workflows:
   cf_workflow:
     jobs:
-      - aws-cloudformation/deploy:
+      - aws-cloudformation/create-stack:
           stack-name: newStack
           template-file-path: template.yml
