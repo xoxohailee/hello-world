@@ -1,5 +1,5 @@
 version: 2.1
-//Comment For Push
+
 jobs:
   config_infrastructure:
     docker:
@@ -15,6 +15,7 @@ jobs:
             ansible-playbook main-remote.yml -i inventory
 
 workflows:
+  version: 2
   ansible_workflow:
     jobs:
       - config_infrastructure
