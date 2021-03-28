@@ -1,11 +1,7 @@
-- name: Add to SSH known hosts automatically
-  set_fact:
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
-  when: checkForKnownHostsEntry.rc == 1
-  changed_when: checkForKnownHostsEntry.rc == 1
-
 - name: Exercise for setting up a web server in an EC2
   hosts: all
   user: ubuntu
+  vars:
+    - ansible_host_key_checking: false
   roles:
   - print
