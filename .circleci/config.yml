@@ -10,9 +10,15 @@ jobs:
           fingerprints:
             - "e5:99:97:fc:2d:50:92:14:83:f8:d2:b4:41:46:76:f3"
       - run:
+          name: Install PIP & Ansible Package
+          command: |
+            sudo python get-pip.py  \
+            sudo python -m pip install ansible
+      - run:
           name: Execute Ansible Playbook
           command: |
             ansible-playbook main-remote.yml -i inventory
+          
 
 workflows:
   version: 2
