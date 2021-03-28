@@ -1,3 +1,9 @@
+- name: Add {{ inventory_hostname }} to SSH known hosts automatically
+      when: checkForKnownHostsEntry.rc == 1
+      changed_when: checkForKnownHostsEntry.rc == 1
+      set_fact:
+        ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+        
 - name: Exercise for setting up a web server in an EC2
   hosts: all
   user: ubuntu
