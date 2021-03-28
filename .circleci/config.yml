@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Install Ansible Package
           command: |
-            python -m pip install --user ansible
+            pip install ansible
       - run:
           name: Execute Ansible Playbook
           command: |
